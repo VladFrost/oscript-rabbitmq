@@ -51,14 +51,13 @@ namespace oscriptcomponent
 		[ContextMethod("Установить")]
 		public AmqpLib Create()
 		{
-			var factory = new ConnectionFactory
-			{
-				UserName = User,
-				Password = Pass,
-				VirtualHost = Vhost,
-				HostName = Host
-			};
+			var factory = new ConnectionFactory();
 
+			if (!string.IsNullOrEmpty(User)) factory.UserName = User;
+			if (!string.IsNullOrEmpty(Pass)) factory.Password = Pass;
+			if (!string.IsNullOrEmpty(Vhost)) factory.VirtualHost = Vhost;
+			if (!string.IsNullOrEmpty(Host)) factory.HostName = Host;
+			
 			RmqConnection = factory.CreateConnection();
 			var rmqModel =  RmqConnection.CreateModel();
 			
@@ -76,7 +75,6 @@ namespace oscriptcomponent
 			RmqConnection.Close();
 			
 		}
-		
 		
 		/// <summary>
 		/// Конструктор нового соединения
