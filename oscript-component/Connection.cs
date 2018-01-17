@@ -43,6 +43,11 @@ namespace oscriptcomponent
 		[ContextProperty("Сервер")]
 		public string Host { get; set; }
 		
+		/// <summary>
+		/// Порт
+		/// </summary>
+		[ContextProperty("Порт")]
+		public int Port { get; set; }
 		
 		/// <summary>
 		/// Установить соединение
@@ -57,6 +62,7 @@ namespace oscriptcomponent
 			if (!string.IsNullOrEmpty(Pass)) factory.Password = Pass;
 			if (!string.IsNullOrEmpty(Vhost)) factory.VirtualHost = Vhost;
 			if (!string.IsNullOrEmpty(Host)) factory.HostName = Host;
+			if (Port != 0) factory.Port = Port;
 			
 			RmqConnection = factory.CreateConnection();
 			var rmqModel =  RmqConnection.CreateModel();
