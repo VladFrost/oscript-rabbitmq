@@ -36,5 +36,27 @@ namespace oscriptcomponent
 
             _rmqModel.BasicPublish(exchangeName, routingKey, rmqMessageProperties, messageBodyBytes);
         }
+
+        /// <summary>
+        /// Получить текстовое сообщение из очереди
+        /// </summary>
+        /// <param name="queueName"></param>
+        /// <param name="noAck"></param>
+        /// <returns></returns>
+        [ContextMethod("ПолучитьСтроку")]
+        public string GetString(string queueName, bool noAck)
+        {
+            BasicGetResult result = _rmqModel.BasicGet(queueName, noAck);
+
+            string message = "";
+
+            if (result != null)
+            {
+                byte[] body = result.Body;
+                message = System.Text.Encoding.UTF8.GetString(body);
+            }
+
+            return message;
+        }
     }
 }
