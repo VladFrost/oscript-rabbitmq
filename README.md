@@ -1,3 +1,3 @@
-# OneScript AMPQLib
+# OneScript RabbitMQ
 
 ## Поддержка RabbitMQ для OScript

@@ -1,11 +1,11 @@
 Описание
-	.Имя("ampqlib")
+	.Имя("RabbitMQ")
 	.Версия("0.0.1")
 	.Автор("Nikita Gryzlov, Alexey Sosnoviy")
 	.АдресАвтора("nixel2007@gmail.com; int-it@yandex.ru")
 	.Описание("Поддержка RabbitMQ для OScript")
 
-	.ВерсияСреды("1.0.16")
+	.ВерсияСреды("1.0.18")
 	
 	.ВключитьФайл("lib.config")
 	// Сюда будут складываться компоненты (см. appveyor.yml)
