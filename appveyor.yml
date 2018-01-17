@@ -29,6 +29,8 @@ install:
 
     opm install opm
 
+    choco install rabbitmq --ignoredependencies -y
+
 build:
   verbosity: minimal
 configuration: Release
