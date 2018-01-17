@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using oscriptcomponent;
 
 // Используется NUnit 3.6
 
@@ -20,9 +21,15 @@ namespace NUnitTests
 		[Test]
 		public void TestAsInternalObjects()
 		{
-//			var item1 = new AmqpLib(rmqModel);
-			
-//			Assert.AreEqual(item1.ReadonlyProperty, "MyValue");
+			var connection = new Connection
+			{
+				User = "guest",
+				Pass = "guest",
+				Host = "localhost"
+			};
+
+			var client = connection.Create();
+			client.PublishString("Привет из C#", "test");		
 		}
 
 		[Test]
