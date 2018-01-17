@@ -1,16 +1,16 @@
-﻿using System;
+﻿using ScriptEngine.Machine;
 using ScriptEngine.Machine.Contexts;
-using ScriptEngine.Machine;
+using RabbitMQ.Client;
 
 namespace oscriptcomponent
 {
 	/// <summary>
-	/// Некоторый класс
+	/// Класс для работы с RabbitMQ
 	/// </summary>
-	[ContextClass("МойКласс", "MyClass")]
-	public class MyClass : AutoContext<MyClass>
+	[ContextClass("КлиентRMQ", "RMQClient")]
+	public class AmqpLib : AutoContext<AmqpLib>
 	{
-		public MyClass()
+        public AmqpLib()
 		{
 		}
 
@@ -33,7 +33,7 @@ namespace oscriptcomponent
 		[ScriptConstructor]
 		public static IRuntimeContextInstance Constructor()
 		{
-			return new MyClass();
+			return new AmqpLib();
 		}
 	}
 }

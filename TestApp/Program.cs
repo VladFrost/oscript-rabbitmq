@@ -14,19 +14,20 @@ namespace TestApp
 
 		static readonly string SCRIPT = @"// Отладочный скрипт
 // в котором уже подключена наша компонента
-Слагаемое1 = Новый Слагаемое(5);
-Слагаемое2 = Новый Слагаемое(Слагаемое1);
+ Либ = Новый AMPQLib();
+// Слагаемое2 = Новый Слагаемое(Слагаемое1);
 
-Складыватель = Новый Сложение;
-Складыватель.ДобавитьСлагаемое(Слагаемое1);
-Складыватель.ДобавитьСлагаемое(Слагаемое2);
-//Складыватель.ДобавитьСлагаемое('20150601');
+// Складыватель = Новый Сложение;
+// Складыватель.ДобавитьСлагаемое(Слагаемое1);
+// Складыватель.ДобавитьСлагаемое(Слагаемое2);
+// Складыватель.ДобавитьСлагаемое('20150601');
 
-Сумма = Складыватель.Вычислить();
+// Сумма = Складыватель.Вычислить();
 
-Сообщить(""Получилось: "" + Сумма);
+Сообщить(""Получилось: "");
+Сообщить(Либ.СвойствоДляЧтения);
 "
-			;
+            ;
 
 		public static HostedScriptEngine StartEngine()
 		{
@@ -34,7 +35,7 @@ namespace TestApp
 			engine.Initialize();
 
 			// Тут можно указать любой класс из компоненты
-			engine.AttachAssembly(System.Reflection.Assembly.GetAssembly(typeof(oscriptcomponent.MyClass)));
+			engine.AttachAssembly(System.Reflection.Assembly.GetAssembly(typeof(oscriptcomponent.AmqpLib)));
 
 			// Если проектов компонент несколько, то надо взять по классу из каждой из них
 			// engine.AttachAssembly(System.Reflection.Assembly.GetAssembly(typeof(oscriptcomponent_2.MyClass_2)));
