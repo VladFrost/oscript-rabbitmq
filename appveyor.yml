@@ -31,6 +31,14 @@ install:
 
     choco install rabbitmq --ignoredependencies -y
 
+    appveyor DownloadFile http://127.0.0.1:15672/cli/rabbitmqadmin -FileName rabbitmqadmin.py
+
+    python rabbitmqadmin.py declare exchange name=test type=direct
+
+    python rabbitmqadmin.py declare queue name=test durable=true
+
+    python rabbitmqadmin.py declare binding source="test" destination_type="queue" destination="test"
+
 build:
   verbosity: minimal
 configuration: Release
